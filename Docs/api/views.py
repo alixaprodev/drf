@@ -11,7 +11,7 @@ def home(request):
         "urls": {
             "": reverse("home", request=request),
             "list-users": reverse("list-users", request=request),
-            "get-users <id=int>": reverse("get-user", kwargs={'id':1}, request=request),
+            "get-users <id=int>": reverse("get-user", kwargs={'user_id':5}, request=request),
         }
     }
     return Response(data)
@@ -104,6 +104,11 @@ def advance_query(request):
     # return Response({'data':serializer.data})
 
     # Scenarion 3 : Retrive products in a specific category
-    products = Product.objects.filter(category = 1)
-    serializer = ProductSerializer(products, many = True)
-    return Response({'product':serializer.data})
+    # products = Product.objects.filter(category = 1)
+    # serializer = ProductSerializer(products, many = True)
+    # return Response({'product':serializer.data})
+    
+    # Scenarion 4 : Retrieve prodcuts in a specific category from the category table
+    products = Product.objects.filter(category = 3)
+    serializer = ProductSerializer(products, many=True)
+    return Response ({'products':serializer.data})
