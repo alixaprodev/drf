@@ -1,9 +1,10 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
-from .serializers import CustomUserSerializer
-from .models import CustomUser
+from .serializers import CustomUserSerializer, OrderSerializer, OrderItemSerializer, ProductSerializer
+from .models import CustomUser, Order, OrderItem, Product
 from rest_framework import status
+
 @api_view(['GET'])
 def home(request):
     data = {
@@ -89,6 +90,20 @@ def list_users(request):
         return Response({'success': True, 'data': serializer.data}, status=status.HTTP_200_OK)
     return Response({'success': False, 'error': 'Method Not Allowed'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
+@api_view(['GET'])
+def advance_query(request):
+    # Scenarion 1 : Only Staff Members
+    # users = CustomUser.objects.filter(is_staff=True)
+    # serializer = CustomUserSerializer(users, many=True)
+    # return Response({'data':serializer.data})
 
-    
-    
+    # Scenarion 2 : Joined after 2022
+    # import datetime
+    # users = CustomUser.objects.filter(date_joined__gte='2022-1-1')
+    # serializer = CustomUserSerializer(users, many=True)
+    # return Response({'data':serializer.data})
+
+    # Scenarion 3 : Retrive products in a specific category
+    products = Product.objects.filter(category = 1)
+    serializer = ProductSerializer(products, many = True)
+    return Response({'product':serializer.data})

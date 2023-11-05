@@ -27,4 +27,7 @@ urlpatterns=[
 
     # List all users using GET
     path('users/', views.list_users, name='list-users'),
+
+    # Advance Queries
+    path('advance-query/',views.advance_query, name='advance-query')
 ]
