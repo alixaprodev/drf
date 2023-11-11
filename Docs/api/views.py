@@ -92,23 +92,6 @@ def list_users(request):
 
 @api_view(['GET'])
 def advance_query(request):
-    # Scenarion 1 : Only Staff Members
-    # users = CustomUser.objects.filter(is_staff=True)
-    # serializer = CustomUserSerializer(users, many=True)
-    # return Response({'data':serializer.data})
+    pass
 
-    # Scenarion 2 : Joined after 2022
-    # import datetime
-    # users = CustomUser.objects.filter(date_joined__gte='2022-1-1')
-    # serializer = CustomUserSerializer(users, many=True)
-    # return Response({'data':serializer.data})
 
-    # Scenarion 3 : Retrive products in a specific category
-    # products = Product.objects.filter(category = 1)
-    # serializer = ProductSerializer(products, many = True)
-    # return Response({'product':serializer.data})
-    
-    # Scenarion 4 : Retrieve prodcuts in a specific category from the category table
-    products = Product.objects.filter(category = 3)
-    serializer = ProductSerializer(products, many=True)
-    return Response ({'products':serializer.data})
