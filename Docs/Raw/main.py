@@ -4,7 +4,7 @@ import collections
 def de_va():
     return 'missing values'
 # Using a standard dict
-regular_dict = collections.defaultdict(None)
+regular_dict = collections.defaultdict()
 regular_dict['apple'] = 3
 regular_dict['banana'] = 2
 regular_dict['cherry'] = 5

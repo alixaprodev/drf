@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     # User defined apps
-    'api',
+    'api.apps.ApiConfig',
+    'intr',
 ]
 
 REST_FRAMEWORK = {
