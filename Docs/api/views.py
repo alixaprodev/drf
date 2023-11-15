@@ -91,7 +91,8 @@ def list_users(request):
     return Response({'success': False, 'error': 'Method Not Allowed'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 @api_view(['GET'])
-def advance_query(request):
-    pass
+def advance_query(request, int_param):
+    int_param = str(type(int_param))
+    return Response({'inte_param':int_param})
 
 

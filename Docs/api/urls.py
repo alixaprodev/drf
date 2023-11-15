@@ -29,5 +29,5 @@ urlpatterns=[
     path('users/', views.list_users, name='list-users'),
 
     # Advance Queries
-    path('advance-query/',views.advance_query, name='advance-query')
+    path('advance-query/<str:int_param>/',views.advance_query, name='advance-query')
 ]
